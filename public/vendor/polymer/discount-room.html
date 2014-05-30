@@ -1,0 +1,48 @@
+<link rel="import" href="/components/polymer/polymer.html">
+<link rel="import" href="/public/vendor/core-firebase/core-firebase.html">
+<!-- <link rel="import" href="../bower_components/core-firebase/firebase-import.html"> -->
+<!-- <link rel="import" href="./discount-input.html">
+<link rel="import" href="./discount-display.html"> -->
+
+<polymer-element name="discount-room">
+  <template>
+    <core-firebase  location="https://universaltagmachine.firebaseio.com/tagnames" 
+            list="{{tagnames}}" 
+            on-items-added={{update}}
+            on-items-removed={{update}}
+            on-items-changed={{update}}
+            id="firebase">
+    </core-firebase>
+    <!-- <discount-input></discount-input>
+    <discount-display></discount-display> -->
+    <input id="uchar" type="text"></input>
+    <button id="submit" on-click={{sendChar}}>Submit</button>
+    <button id="remove" on-click={{removeChar}}>Remove</button>
+    <hr>
+    <pre id="display"></pre> 
+  </template>
+  <script>
+    Polymer('discount-room', {
+      ready: function (){
+        console.log(this.tagnames);
+      },
+      sendChar: function sendChar(){
+        chr = this.$.uchar.value;
+        this.$.firebase.push({uchar: chr, posx: 0, posy: 0});
+      },
+      update: function update(){
+        this.$.display.innerHTML = JSON.stringify(this.tagnames);
+      },
+      removeChar: function removeChar(){
+        toRemove = this.$.uchar.value;
+        for (i = 0; i < this.tagnames.length; i++){
+          if (this.tagnames[i].uchar == toRemove){
+            this.$.firebase.remove(this.tagnames[i]);
+            this.tagnames.splice(i, 1);
+          }
+        }
+      }
+
+    });
+  </script>
+</polymer-element>
