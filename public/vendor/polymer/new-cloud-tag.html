@@ -180,14 +180,33 @@
         </ul>
       </div>
 
-<core-firebase  location="https://universaltagmachine.firebaseio.com/" 
-            list="{{tagnames}}" 
+<core-firebase  location="https://universaltagmachine.firebaseio.com/tag" 
+            list="{{tag}}" 
             on-items-added={{update}}
             on-items-removed={{update}}
             on-items-changed={{update}}
             id="firebase">
     </core-firebase>
 
+ <ul>
+      <core-selector selectedClass="selected" 
+                     selectedModel={{selectedItem}}"
+                     selected="3">
+
+        <template repeat="{{ tag in tags }}">
+
+          <li class="tag-info"
+              id="{{taggame.picture}}">
+
+            <div class="basic-info">
+              <div class="image"><img class="person" src="{{taggame.picture}}"/></div>
+            </div>
+
+          </li>
+        </template>
+
+      </core-selector>
+    </ul>
 
   </template>
   <script>
