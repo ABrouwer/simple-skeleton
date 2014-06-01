@@ -8,7 +8,7 @@
   <template>
    
   <core-firebase  location="https://universaltagmachine.firebaseio.com/tag" 
-            list="{{tag}}" 
+            list="{{taggame}}" 
             on-items-added={{update}}
             on-items-removed={{update}}
             on-items-changed={{update}}
@@ -20,7 +20,7 @@
                      selectedModel={{selectedItem}}"
                      selected="3">
 
-        <template repeat="{{ tag in tags }}">
+        <template repeat="{{ taggame in tags }}">
 
           <li class="tag-info"
               id="{{taggame.picture}}">
@@ -39,7 +39,7 @@
   <script>
     Polymer('new-cloud-tag', {
       ready: function (){
-        console.log(this.tagnames);
+        console.log(this.taggame);
       },
 
     });
