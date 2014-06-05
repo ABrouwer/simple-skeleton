@@ -1,0 +1,46 @@
+<link rel="import"
+      href="/components/polymer/polymer.html">
+
+<link rel="import" 
+      href="/public/vendor/core-firebase/core-firebase.html">
+
+<polymer-element name="very-new-cloud-tag">
+  <template>
+    
+    <link href='./very-new-cloud-tag.css' rel='stylesheet' type='text/css'>
+
+      <div class="container">
+        <ul class="tags">
+          <li><a href="http://www.operaballet.nl/nl/ballet/ballet">Nationale Ballet <span>4</span></a></li>
+          <li><a href="https://www.youtube.com/watch?v=1fXkzNEval0">Cinderella <span>15</span></a></li>
+          <li><a href="https://www.youtube.com/watch?v=VikwwOcRONw">Sleeping Beauty <span>8</span></a></li>
+        </ul>
+
+        <ul class="tags green">
+          <li><a href="http://cdt-dance.org/">Contemporary <span>23</span></a></li>
+          <li><a href="https://www.youtube.com/watch?v=Zi9bqnK9PDY">SYTYCD <span>42</span></a></li>
+          <li><a href="https://www.youtube.com/watch?v=HOHDxhu4GkQ">Min Hee <span>108</span></a></li>
+          <li><a href="http://www.ahk.nl/theaterschool/opleidingen-dans/moderne-theaterdans/">Theaterdans <span>12</span></a></li>
+        </ul>
+
+        <ul class="tags blue">
+          <li><a href="https://www.youtube.com/watch?v=NwKOSH1B7Oc">Step Up <span>33</span></a></li>
+          <li><a href="http://www.mtv.com/shows/dance_crew/season_7/series.jhtml">ABDC <span>65</span></a></li>
+          <li><a href="https://www.youtube.com/watch?v=19tJMdyBCu4">Jabbawockeez <span>160</span></a></li>
+          <li><a href="https://www.youtube.com/watch?v=TI0DGvqKZTI">Exo <span>31</span></a></li>
+        </ul>
+      </div>
+
+
+  </template>
+  <script>
+    Polymer('very-new-cloud-tag', {
+      ready: function (){
+        console.log(this.tagnames);
+      },
+
+    });
+  </script>
+</very-new-cloud-tag>
+
+

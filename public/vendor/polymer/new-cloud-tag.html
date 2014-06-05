@@ -33,12 +33,48 @@
       </div>
 
 
+  <core-firebase  location="https://tag-machine.firebaseio.com/" 
+            list="{{tagData}}" 
+            on-items-added={{update}}
+            on-items-removed={{update}}
+            on-items-changed={{update}}
+            id="firebase">
+  </core-firebase>
+
+  <pre id="display"></pre> 
   </template>
   <script>
     Polymer('new-cloud-tag', {
       ready: function (){
-        console.log(this.tagnames);
+        this.writeToFirebase();
+
+        console.log(this.tagData);
       },
+
+      writeToFirebase: function () {
+        this.numb = Object.keys(this.tagData).length; // get the amount of tags stored already
+        this.tag = this.$.tag.value;                  // get values entered into inout fields
+        this.url = this.$.url.value;
+        
+        this.check = 0;
+        this.tagPos = undefined;
+        this.itemNumb = 0;
+        for (var i = 0; i < this.numb; i++) {         // iterate over the tags that are there already...
+            for(var k in this.tagData[i]) {
+                if (k == this.tag) {
+                  this.check = this.check + 1;        // ... and íf the tag exists already store which and where.
+                  var array = this.tagData[i][k];
+                  this.itemNumb = array.length;
+                  this.tagPos = i;
+                  this.tName = k;
+                  };
+                };
+            };
+          },
+
+    update: function update(){
+      this.$.display.innerHTML = JSON.stringify(this.tagData);
+    }
 
     });
   </script>

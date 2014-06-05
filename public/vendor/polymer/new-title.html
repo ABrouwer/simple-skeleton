@@ -1,0 +1,28 @@
+<link rel="import"
+      href="/components/polymer/polymer.html">
+
+<link rel="import" 
+      href="/public/vendor/core-firebase/core-firebase.html">
+
+<polymer-element name="new-title">
+  <template>
+    
+    <link href='./new-title.css' rel='stylesheet' type='text/css'>
+
+     <link href="http://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet" type="text/css">
+      <span>AST Portfolio</span>
+  
+
+
+  </template>
+  <script>
+    Polymer('new-title', {
+      ready: function (){
+        console.log(this.tagnames);
+      },
+
+    });
+  </script>
+</new-title>
+
+

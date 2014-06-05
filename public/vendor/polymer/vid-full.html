@@ -1,0 +1,88 @@
+<link rel="import"
+      href="/components/polymer/polymer.html">
+
+<link rel="import" 
+      href="/public/vendor/core-firebase/core-firebase.html">
+
+<link rel="import" href="./vendor/polymer/new-title.html">
+
+<polymer-element name="vid-full" noscript>
+  <template>
+    
+        <style>
+
+                body {
+                margin: 0;
+                padding: 0;
+              /*  Background fallback in case of IE8 & down, or in case video doens't load, such as with slower connections  */
+                background: url(http://mattgrossdesign.com/raw-media/first-frame-screencap.jpg) #333;
+                background-attachment: fixed;
+                background-size: 1366px, 555px;
+              }
+
+              #video-background {
+              /*  making the video fullscreen  */
+                position: static;
+                right: 0; 
+                bottom: 0;
+                min-width: 100%; 
+                min-height: 100%;
+                width: 555px; 
+                height: 1300px;
+                z-index: -100;
+              }
+
+              article {
+              /*  just a fancy border  */
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                border: 10px solid rgba(255, 255, 255, 0.5);
+                margin: 10px;
+              }
+
+              h1 {
+                position: absolute;
+                top: 50%;
+                width: 100%;
+                font-size: 36px;
+                letter-spacing: 3px;
+                color: #fff;
+                font-family: Oswald, sans-serif;
+                text-align: center;
+              }
+
+
+
+
+        </style>
+
+
+        <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+
+        <article>
+          <h1><new-title></new-title><h1>
+        </article>
+          
+        <!--  Video is muted & autoplays, placed after major dom elements for performance & has an image fallback  -->
+        <video autoplay loop poster="http://mattgrossdesign.com/raw-media/first-frame-screencap" id="video-background" muted>
+          <source src="http://mattgrossdesign.com/raw-media/wood+autumn-HD.mp4" type="video/mp4">
+        </video>
+          
+        
+
+
+  </template>
+  <script>
+    Polymer('vid-full', {
+      ready: function (){
+       
+      },
+
+    });
+  </script>
+</vid-full>
+
+

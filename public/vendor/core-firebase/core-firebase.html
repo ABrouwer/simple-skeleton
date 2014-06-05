@@ -1,4 +1,4 @@
-﻿<link rel="import" href="../firebase-import.html">
+﻿<link rel="import" href="firebase-import.html">
 <link rel="import" href="../polymer/polymer.html">
 
 <!--
@@ -21,7 +21,7 @@ Element wrapper for the FireBase Web API.
 
         var job, list = [];
 
-        
+        // TODO(sjmiles): this is a really bad way of doing this
         dataRef.on('child_added', function(snapshot) {
           list.push(snapshot.val());
           job = this.job(job, function() {
@@ -29,7 +29,6 @@ Element wrapper for the FireBase Web API.
           });
         }, this);
 
-    
         dataRef.on('child_removed', function(snapshot){
           list.splice(list.indexOf(snapshot.val()), 1);
           job = this.job(job, function() {
@@ -54,9 +53,9 @@ Element wrapper for the FireBase Web API.
           job = this.job(job, function() {
             this.fire('something-changed');
           });
-          
+
         }, this);
-        
+
         this.list = list;
         this.dataRef = dataRef;
       },
@@ -65,7 +64,12 @@ Element wrapper for the FireBase Web API.
         this.dataRef.push(item);
       },
 
+      set: function(item) {
+        this.dataRef.set(item);
+      },
+
       remove: function(item) {
+        // TODO(sjmiles): this is a really bad way of doing this
         this.dataRef.once('value', function(snap) {
           snap.forEach(function(snap) {
             var rec = snap.val();
