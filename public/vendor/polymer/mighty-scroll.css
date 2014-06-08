@@ -1,7 +1,4 @@
 
-
-
-
 body {
 	font-family: sans-serif;
 	font-weight: 300;
@@ -19,6 +16,7 @@ a {
 p {
 	margin-bottom: 10px;
 }
+
 
 #hero {
 	background-color: $green;
@@ -72,6 +70,8 @@ p {
 		fill: #fff;
 	}
 }
+
+
 
 .nav {
 	position: relative;
@@ -127,12 +127,6 @@ h1 {
 
 
 
-/*
-CSS ANIMATE BY Daniel Eden
-Animate.css - http://daneden.me/animate
-Licensed under the MIT license
-Copyright (c) 2013 Daniel Eden
-*/
  
 @-webkit-keyframes bounce {
     0%, 20%, 50%, 80%, 100% {-webkit-transform: translateY(0);}

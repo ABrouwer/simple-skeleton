@@ -1,0 +1,28 @@
+<link rel="import"
+      href="/components/polymer/polymer.html">
+
+<link rel="import" 
+      href="/public/vendor/core-firebase/core-firebase.html">
+
+<link rel="import" 
+      href="/public/vendor/polymer-ajax/polymer-ajax.html">
+
+<polymer-element name="new-polymer-ajax-tag" noscript>
+  <template>
+    
+    <link href='./new-cloud-tag.css' rel='stylesheet' type='text/css'>
+
+      <div>
+        <polymer-ajax url="https://universaltagmachine.firebaseio.com/tagnames.json" auto handleAs="json" response="{{tagList}}"></polymer-ajax>
+        <template repeat="{{tagnames in tagList}}">
+          
+        <div class="container">
+        <ul class="tags">
+          <li><a href="1">{{tagnames}} <span>4</span></a></li>
+        </ul>
+
+  </template>
+  
+</new-polymer-ajax-tag>
+
+
