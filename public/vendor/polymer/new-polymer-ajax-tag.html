@@ -7,22 +7,32 @@
 <link rel="import" 
       href="/public/vendor/polymer-ajax/polymer-ajax.html">
 
-<polymer-element name="new-polymer-ajax-tag" noscript>
-  <template>
+<polymer-element name="new-polymer-ajax-tag">
+<template>
     
     <link href='./new-cloud-tag.css' rel='stylesheet' type='text/css'>
 
       <div>
         <polymer-ajax url="https://universaltagmachine.firebaseio.com/tagnames.json" auto handleAs="json" response="{{tagList}}"></polymer-ajax>
-        <template repeat="{{tagnames in tagList}}">
-          
-        <div class="container">
-        <ul class="tags">
-          <li><a href="1">{{tagnames}} <span>4</span></a></li>
-        </ul>
+        
+        
+      <div class="container">
+            <ul class="tags">
+                  <template repeat="{{tagnames in displayList}}">
+                        <li><a href="1">{{tagnames}} <span>4</span></a></li>
+                  </template>
+             </ul>
+      </div>
+       
+</template>
 
-  </template>
-  
+<script>
+Polymer('new-polymer-ajax-tag', {
+      taglistChanged: function () {
+        this.displaylist = this.tagList;
+        },
+});
+</script>
+
 </new-polymer-ajax-tag>
-
 
